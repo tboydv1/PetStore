@@ -28,6 +28,7 @@ public class Pet {
     private Integer age;
 
 
+
     private Date birthDate;
 
 
@@ -85,5 +86,19 @@ public class Pet {
 
     public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Pet{");
+        sb.append("Id=").append(Id);
+        sb.append(", name='").append(name).append('\'');
+        sb.append(", breed='").append(breed).append('\'');
+        sb.append(", types=").append(types);
+        sb.append(", sex=").append(sex);
+        sb.append(", age=").append(age);
+        sb.append(", birthDate=").append(birthDate);
+        sb.append('}');
+        return sb.toString();
     }
 }

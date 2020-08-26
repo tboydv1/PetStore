@@ -4,6 +4,7 @@ package com.petstore.models;
 import javax.persistence.Entity;
 import javax.persistence.*;
 import javax.persistence.GenerationType;
+import java.util.List;
 
 @Entity
 public class Store {
@@ -25,6 +26,9 @@ public class Store {
     private String state;
 
     private String country;
+
+    @OneToMany
+    private List<Pet> pets;
 
 
     public Integer getId() {
