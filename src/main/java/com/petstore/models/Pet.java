@@ -27,6 +27,9 @@ public class Pet {
     @Column(nullable = false)
     private Integer age;
 
+    @ManyToOne()
+    @JoinColumn(name = "store_pets")
+    private Store petStore;
 
 
     private Date birthDate;
@@ -86,6 +89,15 @@ public class Pet {
 
     public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
+    }
+
+
+    public Store getPetStore() {
+        return petStore;
+    }
+
+    public void setPetStore(Store petStore) {
+        this.petStore = petStore;
     }
 
     @Override

@@ -4,6 +4,7 @@ package com.petstore.models;
 import javax.persistence.Entity;
 import javax.persistence.*;
 import javax.persistence.GenerationType;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -27,7 +28,8 @@ public class Store {
 
     private String country;
 
-    @OneToMany
+    @OneToMany(mappedBy = "petStore", fetch = FetchType.EAGER, cascade = {CascadeType.ALL}
+    )
     private List<Pet> pets;
 
 
@@ -85,5 +87,37 @@ public class Store {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    public List<Pet> getPets() {
+        return pets;
+    }
+
+    public void setPets(List<Pet> pets) {
+        this.pets = pets;
+    }
+
+    public void addPet(Pet onePet){
+
+        if(this.pets == null){
+            this.pets = new ArrayList<>();
+        }
+
+        this.pets.add(onePet);
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Store{");
+        sb.append("Id=").append(Id);
+        sb.append(", storeName='").append(storeName).append('\'');
+        sb.append(", storeNumber=").append(storeNumber);
+        sb.append(", address='").append(address).append('\'');
+        sb.append(", city='").append(city).append('\'');
+        sb.append(", state='").append(state).append('\'');
+        sb.append(", country='").append(country).append('\'');
+        sb.append(", pets=").append(pets);
+        sb.append('}');
+        return sb.toString();
     }
 }
