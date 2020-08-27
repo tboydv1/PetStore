@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div>
+
+    <form action="#" th:action="@{/store/pet/save}" th:object="${storePet}" method="post">
+
+        <input type="text" th:field="*{storeId}" hidden>
+
+        <label for="petName">Pet name</label>
+        <input type="text" th:field="*{name}" id="petName" placeholder="Enter Pet Name">
+
+        <label for="breed">Breed</label>
+        <input type="text" th:field="*{breed}" id="breed" placeholder="Pet breed">
+
+        <label for="type">Type</label>
+        <input type="text" th:field="*{types}" id="type" placeholder="Pet type">
+
+        <label for="sex">Sex</label>
+        <input type="text" th:field="*{sex}" id="sex" placeholder="pet sex">
+
+        <label for="age">Age</label>
+        <input type="text" th:field="*{age}" id="age" placeholder="Enter age">
+
+        <input type="submit">
+
+    </form>
+
+</div>
+
+</body>
+</html>

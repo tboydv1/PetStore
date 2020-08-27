@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<p><a href="/">Go back</a></p>
+
+        <h1>Store Details Preview</h1>
+
+        <p id="storeId" th:text="${storeObj.getId()}"></p>
+
+        <p th:text="${storeObj.getStoreName()}"></p>
+
+        <p th:text="${storeObj.getStoreNumber()}"></p>
+
+        <p th:text="${storeObj.getAddress()}"></p>
+
+        <p th:text="${storeObj.getCity()}"></p>
+
+        <p th:text="${storeObj.getState()}"></p>
+
+        <p th:text="${storeObj.getCountry()}"></p>
+
+</body>
+</html>

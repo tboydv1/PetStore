@@ -12,6 +12,7 @@ import org.springframework.test.context.jdbc.Sql;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.transaction.Transactional;
+import java.util.List;
 import java.util.logging.Logger;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -109,6 +110,43 @@ class StoreRepositoryTest {
         Store savedStore = storeRepository.findById(testStore.getId()).orElse(null);
         assertThat(savedStore.getPets()).isNotNull();
         assertThat(savedStore.getPets()).hasSize(2);
+    }
+
+    @Test
+    void retriveAllPetsinAStoreTest(){
+
+        //Create pets
+        Pet pet1 = new Pet();
+        pet1.setName("Jack");
+        pet1.setBreed("Bull Dog");
+        pet1.setTypes(PetTypes.DOG);
+        pet1.setSex(PetSex.MALE);
+        pet1.setAge(6);
+        pet1.setPetStore(testStore);
+
+        Pet pet2 = new Pet();
+        pet2.setName("Jack");
+        pet2.setBreed("Bull Dog");
+        pet2.setTypes(PetTypes.DOG);
+        pet2.setSex(PetSex.MALE);
+        pet2.setAge(7);
+        pet2.setPetStore(testStore);
+
+        //add pets to store
+        testStore.addPet(pet2);
+        testStore.addPet(pet1);
+
+        //save store
+        testStore = storeRepository.save(testStore);
+        log.info("Store object saved to the db --> "+ testStore);
+
+        Store savedStore = storeRepository.findById(testStore.getId()).orElse(null);
+        assertThat(savedStore.getPets()).isNotNull();
+        assertThat(savedStore.getPets()).hasSize(2);
+
+        List<Pet> petList = savedStore.getPets();
+
+        petList.forEach(System.out::println);
     }
 
 

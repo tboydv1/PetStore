@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div>
+
+    <form action="#" th:action="@{/store/create}" th:object="${store}" method="post">
+
+        <label for="storeName">Store name</label>
+        <input type="text" th:field="*{storeName}" id="storeName" placeholder="storeName">
+
+        <label for="storeNumber">Store number</label>
+        <input type="text" th:field="*{storeNumber}" id="storeNumber" placeholder="Enter Store Name">
+
+        <label for="address">Adress</label>
+        <input type="text" th:field="*{address}" id="address" placeholder="address">
+
+        <label for="city">City</label>
+        <input type="text" th:field="*{city}" id="city" placeholder="city">
+
+        <label for="state">State</label>
+        <input type="text" th:field="*{state}" id="state" placeholder="state">
+
+        <label for="country">Country</label>
+        <input type="text" th:field="*{country}" id="country" placeholder="Enter Counter">
+
+        <input type="submit">
+
+    </form>
+
+</div>
+
+</body>
+</html>
