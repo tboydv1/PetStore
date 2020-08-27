@@ -13,7 +13,7 @@ public interface PetService {
 
     Pet update(Pet pet);
 
-    void delete(Integer petid);
+    void delete(Integer petId);
 
     List<Pet> findAll();
 }
